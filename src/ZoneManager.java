@@ -7,7 +7,7 @@ public class ZoneManager {
 
 	private List<Zone> zones;
 
-	public ZoneManager(LifeguaradZoneRotationGenerator main) {
+	public ZoneManager(LifeguardZoneRotationGenerator main) {
 		this.main = main;
 		this.zones = new ArrayList<Zone>();
 	}
