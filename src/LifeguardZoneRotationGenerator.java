@@ -1,6 +1,18 @@
 
 public class LifeguardZoneRotationGenerator {
-	public static void main(String[] args) {
 
+	private ZoneManager zoneM;
+
+	public static void main(String[] args) {
+		LifeguardZoneRotationGenerator main = new LifeguardZoneRotationGenerator();
+		main.setup();
+	}
+
+	private void setup() {
+		zoneM = new ZoneManager(this);
+	}
+
+	public ZoneManager getZoneManager() {
+		return this.zoneM;
 	}
 }
