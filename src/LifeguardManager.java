@@ -12,7 +12,7 @@ public class LifeguardManager {
 		this.lifeguards = new ArrayList<Lifeguard>();
 	}
 
-	public void setup() {
+	public void loadLifeguards() {
 		Scanner lifeguardsFile = new Scanner("lifeguards.txt");
 		String[] data;
 		String input;
