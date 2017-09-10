@@ -2,17 +2,28 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/*
+ * This class is used to manage Zones, such as loading them from the 
+ * text file and creating the Zones with the information on the file
+ */
 public class ZoneManager {
 
 	private LifeguardZoneRotationGenerator main;
-
 	private List<Zone> zones;
 
+	/*
+	 * Constructor for class ZoneManger
+	 * 
+	 * @param main The main class
+	 */
 	public ZoneManager(LifeguardZoneRotationGenerator main) {
 		this.main = main;
 		this.zones = new ArrayList<Zone>();
 	}
 
+	/*
+	 * (pending comment)
+	 */
 	public void loadZones() {
 		Scanner zonesFile = new Scanner("zones.txt");
 		String[] data;
