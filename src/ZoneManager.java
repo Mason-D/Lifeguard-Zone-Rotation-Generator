@@ -5,6 +5,9 @@ import java.util.Scanner;
 /*
  * This class is used to manage Zones, such as loading them from the 
  * text file and creating the Zones with the information on the file
+ * 
+ * @author Mason Davis 
+ * @author Jorge E. Garcia
  */
 public class ZoneManager {
 
@@ -22,7 +25,7 @@ public class ZoneManager {
 	}
 
 	/*
-	 * (pending comment)
+	 * Loads the Zones from the text file and stores them in the list, zones
 	 */
 	public void loadZones() {
 		Scanner zonesFile = new Scanner("zones.txt");

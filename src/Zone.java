@@ -4,7 +4,8 @@ import java.util.List;
 /*
  * This class is used to store an Instance of a Zone
  * 
- * @author Mason Davis and Jorge E. Garcia
+ * @author Mason Davis
+ * @author Jorge E. Garcia
  */
 public class Zone {
 	private String name;

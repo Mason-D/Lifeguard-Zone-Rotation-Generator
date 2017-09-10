@@ -1,7 +1,8 @@
 /*
  * This class is used to create an instance of a Lifeguard for use else where
  * 
- * @author Mason Davis & Jorge E. Garcia
+ * @author Mason Davis 
+ * @author Jorge E. Garcia
  */
 public class Lifeguard {
 	private String name;
