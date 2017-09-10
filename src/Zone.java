@@ -10,6 +10,7 @@ public class Zone {
 	private String name;
 	private int numberOfStands;
 	private List<Lifeguard> lifeguards;
+	private int ageRequirement;
 
 	/*
 	 * Constuctor for class Zone
@@ -18,9 +19,10 @@ public class Zone {
 	 * 
 	 * @param numberOfStands The number of stands in the Zone
 	 */
-	public Zone(String name, int numberOfStands) {
+	public Zone(String name, int numberOfStands, int ageRequirement) {
 		this.name = name;
 		this.numberOfStands = numberOfStands;
+		this.ageRequirement = ageRequirement;
 		this.lifeguards = new ArrayList<Lifeguard>();
 	}
 
@@ -43,6 +45,10 @@ public class Zone {
 	 */
 	public List<Lifeguard> getLifeguards() {
 		return this.lifeguards;
+	}
+
+	public int getAgeRequirement() {
+		return this.ageRequirement;
 	}
 
 	/*

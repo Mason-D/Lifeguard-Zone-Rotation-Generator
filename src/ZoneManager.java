@@ -20,11 +20,11 @@ public class ZoneManager {
 		while (zonesFile.hasNextLine()) {
 			input = zonesFile.nextLine();
 			data = input.split("\\|");
-			if (!LifeguardZoneRotationGenerator.isInt(data[1])) {
-				throw new NumberFormatException("The value you inputed for the number of stands for " + data[0]
-						+ " is not an acceptable value!");
+			if (!LifeguardZoneRotationGenerator.isInt(data[1]) || !LifeguardZoneRotationGenerator.isInt(data[2])) {
+				throw new NumberFormatException("The value you inputed for the number of stands or age requirement for "
+						+ data[0] + " is not an acceptable value!");
 			}
-			this.zones.add(new Zone(data[0], Integer.parseInt(data[1])));
+			this.zones.add(new Zone(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2])));
 		}
 		zonesFile.close();
 	}
