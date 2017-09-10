@@ -5,18 +5,18 @@
  */
 public class Lifeguard {
 	private String name;
-	private boolean overFifteen;
+	private int age;
 
 	/*
 	 * Constructor for class Lifeguard
 	 * 
 	 * @param name The name of the Lifeguard
 	 * 
-	 * @param overFifteen Whether or not the Lifeguard is over the age of fifteen
+	 * @param age The age of the Lifeguard
 	 */
-	public Lifeguard(String name, boolean overFifteen) {
+	public Lifeguard(String name, int age) {
 		this.name = name;
-		this.overFifteen = overFifteen;
+		this.age = age;
 	}
 
 	/*
@@ -27,9 +27,9 @@ public class Lifeguard {
 	}
 
 	/*
-	 * @return Whether or not the Lifeguard is over the age of fifteen
+	 * @return The age of the Lifeguard
 	 */
-	public boolean isOverFifteen() {
-		return this.overFifteen;
+	public int getAge() {
+		return this.age;
 	}
 }
