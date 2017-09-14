@@ -12,12 +12,6 @@ public class LifeguardZoneRotationGenerator {
 	public static void main(String[] args) {
 		LifeguardZoneRotationGenerator main = new LifeguardZoneRotationGenerator();
 		main.setup();
-		for (Zone z : main.getZoneManager().getZones()) {
-			System.out.println(z);
-		}
-		for (Lifeguard l : main.getLifeguardManager().getLifeguards()) {
-			System.out.println(l);
-		}
 	}
 
 	/*
