@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /*
  * This class is used to manage Lifeguards, such as loading them from the text file and creating instances of each
@@ -58,6 +61,16 @@ public class LifeguardManager {
 			this.lifeguards.add(new Lifeguard(data[0], Integer.parseInt(data[1])));
 		}
 		lifeguardsFile.close();
+	}
+
+	public List<Lifeguard> getLifeguard(Predicate<Lifeguard> pred) {
+		return this.getLifeguards().stream().filter(pred).collect(Collectors.toList());
+	}
+
+	public List<Lifeguard> getLifeguard(int ageRequirement) {
+		return this.getLifeguard(lifeguard -> {
+			return lifeguard.getAge() >= ageRequirement;
+		});
 	}
 
 	public List<Lifeguard> getLifeguards() {

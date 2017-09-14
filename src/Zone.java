@@ -31,7 +31,7 @@ public class Zone {
 	 * @return The name of the zone
 	 */
 	public String getName() {
-		return this.name;
+		return this.name; 
 	}
 
 	/*
