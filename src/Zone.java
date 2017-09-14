@@ -63,4 +63,9 @@ public class Zone {
 		}
 		this.lifeguards.add(lifeguard);
 	}
+
+	@Override
+	public String toString() {
+		return this.getName();
+	}
 }

@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +15,7 @@ import java.util.Scanner;
 public class LifeguardManager {
 	private LifeguardZoneRotationGenerator main;
 
+	private File lifeguardFile;
 	private List<Lifeguard> lifeguards;
 
 	/*
@@ -21,6 +26,7 @@ public class LifeguardManager {
 	public LifeguardManager(LifeguardZoneRotationGenerator main) {
 		this.main = main;
 		this.lifeguards = new ArrayList<Lifeguard>();
+		this.lifeguardFile = new File("lifeguards.txt");
 	}
 
 	/*
@@ -28,18 +34,33 @@ public class LifeguardManager {
 	 * lifeguards
 	 */
 	public void loadLifeguards() {
-		Scanner lifeguardsFile = new Scanner("lifeguards.txt");
+		Scanner lifeguardsFile;
+		try {
+			lifeguardFile.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			lifeguardsFile = new Scanner(new FileReader(lifeguardFile));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return;
+		}
 		String[] data;
 		String input;
 		while (lifeguardsFile.hasNextLine()) {
 			input = lifeguardsFile.nextLine();
 			data = input.split("\\|");
-			if (!LifeguardZoneRotationGenerator.isInt(data[1]) || !LifeguardZoneRotationGenerator.isInt(data[2])) {
+			if (!LifeguardZoneRotationGenerator.isInt(data[1])) {
 				throw new NumberFormatException(
 						"The value you inputed for the age of " + data[0] + " is not an acceptable value!");
 			}
 			this.lifeguards.add(new Lifeguard(data[0], Integer.parseInt(data[1])));
 		}
 		lifeguardsFile.close();
+	}
+
+	public List<Lifeguard> getLifeguards() {
+		return this.lifeguards;
 	}
 }

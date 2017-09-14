@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +15,8 @@ import java.util.Scanner;
 public class ZoneManager {
 
 	private LifeguardZoneRotationGenerator main;
+
+	private File zoneFile;
 	private List<Zone> zones;
 
 	/*
@@ -22,13 +27,25 @@ public class ZoneManager {
 	public ZoneManager(LifeguardZoneRotationGenerator main) {
 		this.main = main;
 		this.zones = new ArrayList<Zone>();
+		this.zoneFile = new File("zones.txt");
 	}
 
 	/*
 	 * Loads the Zones from the text file and stores them in the list, zones
 	 */
 	public void loadZones() {
-		Scanner zonesFile = new Scanner("zones.txt");
+		try {
+			this.zoneFile.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Scanner zonesFile;
+		try {
+			zonesFile = new Scanner(this.zoneFile);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return;
+		}
 		String[] data;
 		String input;
 		while (zonesFile.hasNextLine()) {
@@ -41,5 +58,9 @@ public class ZoneManager {
 			this.zones.add(new Zone(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2])));
 		}
 		zonesFile.close();
+	}
+	
+	public List<Zone> getZones() {
+		return this.zones;
 	}
 }

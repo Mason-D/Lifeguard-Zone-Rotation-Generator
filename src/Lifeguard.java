@@ -33,4 +33,9 @@ public class Lifeguard {
 	public int getAge() {
 		return this.age;
 	}
+
+	@Override
+	public String toString() {
+		return this.getName();
+	}
 }
