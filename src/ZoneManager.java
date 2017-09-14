@@ -59,7 +59,7 @@ public class ZoneManager {
 		}
 		zonesFile.close();
 	}
-	
+
 	public List<Zone> getZones() {
 		return this.zones;
 	}
